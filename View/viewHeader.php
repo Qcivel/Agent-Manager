@@ -1,13 +1,8 @@
 <?php
-//Header commun à inclure dans les pages
-//Navigation dynamique selon l'état connecté ou non
 
-//Déclarer les variables d'affichages
-//Si $title n'est pas défini, je lui donne une valeur de base
 if(!isset($title)){
     $title = "The Shield";
 }
-
 ?>
 
 <!DOCTYPE html>
@@ -16,6 +11,7 @@ if(!isset($title)){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $title ?></title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <header>
@@ -28,7 +24,7 @@ if(!isset($title)){
             ?>
                     <a href="monprofil.php">Mon Compte</a>
                     <a href="agents.php">Agents</a>
-                    <a href="deco.php">Se Déconnecter</a>
+                    <a href="utils/deco.php">Se Déconnecter</a>
             <?php
                 };
             ?>

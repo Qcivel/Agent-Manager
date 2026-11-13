@@ -1,10 +1,9 @@
 <?php
-//Affichage des informations utilisateurs
+//MON COMPTE
+//Affichage des informations du manager connecté
+
 //Démarrer la session
 session_start();
-
-//Variable d'affichage
-$title = "Mon Compte";
 
 //Accessible uniquement si connecté
 if(!isset($_SESSION["id"])){
@@ -13,16 +12,11 @@ if(!isset($_SESSION["id"])){
     exit;
 }
 
-include './header.php';
-?>
+//Inclure les fichiers nécessaires
+require_once './View/viewProfil.php';
+require_once './Controller/ControllerProfil.php';
 
-    <main>
-        <h2>Mon Compte</h2>
-        <p><?php echo(htmlspecialchars($_SESSION["firstname"])." ".htmlspecialchars($_SESSION["lastname"])) ?></p>
-        <p>Email : <?php echo(htmlspecialchars($_SESSION["email"])) ?></p>
-        <p>Role : <?php echo(htmlspecialchars($_SESSION["role"])) ?></p>
-        <p>Date d'enregistrement : <?php echo(htmlspecialchars($_SESSION["createdAt"])) ?></p>
-    </main>
-    
-</body>
-</html>
+//Lancer la page
+$profil = new Profil();
+$controller = new ControllerProfil($profil);
+$controller->render();

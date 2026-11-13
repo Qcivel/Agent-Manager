@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" fill="none" stroke="#3d9bff">
+  <!-- Emblème original "Agent Database" (remplaçable par ton propre logo : img/emblem.svg) -->
+  <defs>
+    <path id="ring-text" d="M300,300 m-232,0 a232,232 0 1,1 464,0 a232,232 0 1,1 -464,0"/>
+  </defs>
+
+  <!-- Anneaux extérieurs -->
+  <circle cx="300" cy="300" r="290" stroke-width="3"/>
+  <circle cx="300" cy="300" r="275" stroke-width="1" stroke-dasharray="4 10"/>
+  <circle cx="300" cy="300" r="255" stroke-width="2"/>
+  <circle cx="300" cy="300" r="208" stroke-width="2"/>
+
+  <!-- Texte circulaire -->
+  <text fill="#3d9bff" stroke="none" font-family="Rajdhani, Segoe UI, sans-serif" font-weight="700" font-size="30" letter-spacing="9">
+    <textPath href="#ring-text" startOffset="0">AGENT DATABASE ✦ DIVISION DES OPÉRATIONS ✦ ACCÈS RESTREINT ✦</textPath>
+  </text>
+
+  <!-- Graduations de radar -->
+  <g stroke-width="3">
+    <line x1="300" y1="92" x2="300" y2="120"/>
+    <line x1="300" y1="480" x2="300" y2="508"/>
+    <line x1="92" y1="300" x2="120" y2="300"/>
+    <line x1="480" y1="300" x2="508" y2="300"/>
+  </g>
+  <circle cx="300" cy="300" r="180" stroke-width="1" stroke-dasharray="2 14"/>
+
+  <!-- Écu central -->
+  <path d="M300,140 L410,180 L410,290 C410,370 360,425 300,455 C240,425 190,370 190,290 L190,180 Z" stroke-width="6"/>
+  <path d="M300,165 L388,197 L388,290 C388,355 348,402 300,428 C252,402 212,355 212,290 L212,197 Z" stroke-width="2"/>
+
+  <!-- Étoile à quatre branches au centre de l'écu -->
+  <path d="M300,215 L318,282 L385,300 L318,318 L300,385 L282,318 L215,300 L282,282 Z" fill="#3d9bff" fill-opacity="0.25" stroke-width="3"/>
+  <circle cx="300" cy="300" r="14" fill="#3d9bff" stroke="none"/>
+</svg>
