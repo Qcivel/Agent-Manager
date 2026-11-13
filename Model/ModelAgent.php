@@ -1,13 +1,18 @@
 <?php
 
-class Agent{
+require_once './Model/AbstractModel.php';
+
+class Agent extends AbstractModel{
     //ATTRIBUTS
     private int $id;
     private string $name;
     private string $dob;
+    private string $createdAt;
+    private string $archetype;
+    private string $tier;
+    private string $team;
     private int $idTier;
     private int $idArchetype;
-    private PDO $pdo;
 
     //GETTERS SETTERS
     public function getId(): int {
@@ -37,32 +42,84 @@ class Agent{
         return $this;
     }
 
+    public function getTier(): string {
+        return $this->tier;
+    }
+
+    public function setTier(string $tier): self {
+        $this->tier = $tier;
+        return $this;
+    }
+
+    public function getArchetype(): string {
+        return $this->archetype;
+    }
+
+    public function setArchetype(string $archetype): self {
+        $this->archetype = $archetype;
+        return $this;
+    }
+
+    public function getCreatedAt(): string {
+        return $this->createdAt;
+    }
+
+    public function setCreatedAt(string $createdAt): self {
+        $this->createdAt = $createdAt;
+        return $this;
+    }
+
+    public function getTeam(): string {
+        return $this->team;
+    }
+
+    public function setTeam(string $team): self {
+        $this->team = $team;
+        return $this;
+    }
+    
+    /**
+     * Get the value of idTier
+     *
+     * @return int
+     */
     public function getIdTier(): int {
         return $this->idTier;
     }
 
+    /**
+     * Set the value of idTier
+     *
+     * @param int $idTier
+     *
+     * @return self
+     */
     public function setIdTier(int $idTier): self {
         $this->idTier = $idTier;
         return $this;
     }
 
+    /**
+     * Get the value of idArchetype
+     *
+     * @return int
+     */
     public function getIdArchetype(): int {
         return $this->idArchetype;
     }
 
+    /**
+     * Set the value of idArchetype
+     *
+     * @param int $idArchetype
+     *
+     * @return self
+     */
     public function setIdArchetype(int $idArchetype): self {
         $this->idArchetype = $idArchetype;
         return $this;
     }
-
-    public function getPdo(): PDO {
-        return $this->pdo;
-    }
-
-    public function setPdo(PDO $pdo): self {
-        $this->pdo = $pdo;
-        return $this;
-    }
+    
 
     //METHODES
 
@@ -112,7 +169,7 @@ class Agent{
     }
 
     //Liste de tous les agents
-    public function listAgent(): array {
+    public function findAll(): array {
         try{
             //A. Préparer la requête
             $request = $this->pdo->prepare("SELECT a.Id_Agent, a.name, a.dob, a.created_at, t.tier, ac.archetype, te.team_name FROM agents a INNER JOIN tiers t ON t.Id_Tier = a.Id_Tier INNER JOIN archetypes ac ON ac.Id_Archetype = a.Id_Archetype LEFT JOIN teams te ON te.Id_Team = a.Id_Team");
@@ -129,4 +186,6 @@ class Agent{
             return [];
         }
     }
+
+    
 }
